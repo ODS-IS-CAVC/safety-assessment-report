@@ -1,0 +1,34 @@
+# テキストファイルの改行コードをLFに統一
+* text=auto eol=lf
+
+# Rustファイル
+*.rs text eol=lf
+*.toml text eol=lf
+
+# TypeScript/JavaScript
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+
+# マークダウン・設定ファイル
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.css text eol=lf
+
+# Windowsバッチファイル（CRLFが必要）
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# バイナリファイル
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.dll binary
+*.exe binary
+*.so binary
+*.dylib binary

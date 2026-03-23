@@ -1,0 +1,62 @@
+# Tauri / Rust
+/target
+/src-tauri/target
+/src-tauri/Cargo.lock
+*-schema.json
+
+# Node.js / npm
+node_modules/
+/dist
+/dist-ssr
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+*.exe
+*.msi
+*.dmg
+*.deb
+*.rpm
+*.AppImage
+*.app
+/bundle
+
+# esmini (external library - download separately)
+/esmini
+esminiRM_log.txt
+
+# Test outputs
+/tests/output/
+*.test.csv
+*.test.log
+
+# SCT calculation outputs
+sample_data/**/sct/
+docs/pptx/
+
+# sct-core: FFI wrapper + type definitions (public)
+# Algorithm implementation is in prebuilt binaries (sct-core/prebuilt/)

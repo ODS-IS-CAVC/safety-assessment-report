@@ -1,0 +1,1504 @@
+{
+  "vehicles": [
+    {
+      "name": "DaihatsuCopen",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.152,
+          "y": 0.0,
+          "z": 0.64
+        },
+        "Dimensions": {
+          "height": 1.28,
+          "length": 3.395,
+          "width": 1.475
+        }
+      }
+    },
+    {
+      "name": "DaihatsuRocky",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.321,
+          "y": 0.0,
+          "z": 0.81
+        },
+        "Dimensions": {
+          "height": 1.62,
+          "length": 3.995,
+          "width": 1.699
+        }
+      }
+    },
+    {
+      "name": "DaihatsuTanto",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.274,
+          "y": 0.0,
+          "z": 0.871
+        },
+        "Dimensions": {
+          "height": 1.743,
+          "length": 3.414,
+          "width": 1.468
+        }
+      }
+    },
+    {
+      "name": "HinoFireTruck",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.564,
+          "y": 0.0,
+          "z": 1.4
+        },
+        "Dimensions": {
+          "height": 2.8,
+          "length": 6.689,
+          "width": 2.289
+        }
+      }
+    },
+    {
+      "name": "HinoGarbageTruck",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.997,
+          "y": 0.0,
+          "z": 1.181
+        },
+        "Dimensions": {
+          "height": 2.363,
+          "length": 5.837,
+          "width": 2.11
+        }
+      }
+    },
+    {
+      "name": "HinoProfia",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.536,
+          "y": 0.0,
+          "z": 1.849
+        },
+        "Dimensions": {
+          "height": 3.698,
+          "length": 11.87,
+          "width": 2.564
+        }
+      }
+    },
+    {
+      "name": "HondaActy",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.096,
+          "y": 0.0,
+          "z": 0.867
+        },
+        "Dimensions": {
+          "height": 1.735,
+          "length": 3.397,
+          "width": 1.475
+        }
+      }
+    },
+    {
+      "name": "HondaCB1300",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.728,
+          "y": -0.001,
+          "z": 0.855
+        },
+        "Dimensions": {
+          "height": 1.71,
+          "length": 2.2,
+          "width": 0.81
+        }
+      }
+    },
+    {
+      "name": "HondaFit",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.349,
+          "y": 0.0,
+          "z": 0.748
+        },
+        "Dimensions": {
+          "height": 1.495,
+          "length": 3.993,
+          "width": 1.723
+        }
+      }
+    },
+    {
+      "name": "HondaFreed",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.385,
+          "y": 0.0,
+          "z": 0.859
+        },
+        "Dimensions": {
+          "height": 1.717,
+          "length": 4.29,
+          "width": 1.695
+        }
+      }
+    },
+    {
+      "name": "HondaNbox",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.26,
+          "y": 0.0,
+          "z": 0.895
+        },
+        "Dimensions": {
+          "height": 1.79,
+          "length": 3.395,
+          "width": 1.475
+        }
+      }
+    },
+    {
+      "name": "HondaOdyssey",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.417,
+          "y": 0.0,
+          "z": 0.847
+        },
+        "Dimensions": {
+          "height": 1.695,
+          "length": 4.855,
+          "width": 1.82
+        }
+      }
+    },
+    {
+      "name": "HondaStepwgn",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.388,
+          "y": 0.0,
+          "z": 0.902
+        },
+        "Dimensions": {
+          "height": 1.805,
+          "length": 4.68,
+          "width": 1.692
+        }
+      }
+    },
+    {
+      "name": "HondaSuperCub50",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.553,
+          "y": -0.004,
+          "z": 0.87
+        },
+        "Dimensions": {
+          "height": 1.74,
+          "length": 1.858,
+          "width": 0.703
+        }
+      }
+    },
+    {
+      "name": "HondaVezel",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.332,
+          "y": 0.0,
+          "z": 0.795
+        },
+        "Dimensions": {
+          "height": 1.59,
+          "length": 4.329,
+          "width": 1.799
+        }
+      }
+    },
+    {
+      "name": "IsuzuErga",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.378,
+          "y": 0.0,
+          "z": 1.508
+        },
+        "Dimensions": {
+          "height": 3.015,
+          "length": 10.449,
+          "width": 2.569
+        }
+      }
+    },
+    {
+      "name": "IsuzuVehicleCarrier",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.686,
+          "y": 0.0,
+          "z": 2.148
+        },
+        "Dimensions": {
+          "height": 4.297,
+          "length": 11.995,
+          "width": 2.59
+        }
+      }
+    },
+    {
+      "name": "MazdaCX30",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.367,
+          "y": 0.0,
+          "z": 0.77
+        },
+        "Dimensions": {
+          "height": 1.54,
+          "length": 4.395,
+          "width": 1.795
+        }
+      }
+    },
+    {
+      "name": "MazdaCx3",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.339,
+          "y": 0.0,
+          "z": 0.773
+        },
+        "Dimensions": {
+          "height": 1.546,
+          "length": 4.274,
+          "width": 1.794
+        }
+      }
+    },
+    {
+      "name": "MazdaRoadster",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.114,
+          "y": 0.0,
+          "z": 0.604
+        },
+        "Dimensions": {
+          "height": 1.208,
+          "length": 3.915,
+          "width": 1.735
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoDump",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.105,
+          "y": 0.0,
+          "z": 1.7
+        },
+        "Dimensions": {
+          "height": 3.4,
+          "length": 7.67,
+          "width": 2.49
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoFlatbed_Tractor",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.438,
+          "y": 0.0,
+          "z": 1.595
+        },
+        "Dimensions": {
+          "height": 3.19,
+          "length": 6.573,
+          "width": 2.54
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoFlatbed_Trailer",
+      "BoundingBox": {
+        "Center": {
+          "x": 4.826,
+          "y": 0.0,
+          "z": 0.782
+        },
+        "Dimensions": {
+          "height": 1.564,
+          "length": 12.884,
+          "width": 3.06
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoTanker_Tractor",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.803,
+          "y": 0.0,
+          "z": 1.56
+        },
+        "Dimensions": {
+          "height": 3.12,
+          "length": 5.436,
+          "width": 2.615
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoTanker_Trailer",
+      "BoundingBox": {
+        "Center": {
+          "x": 3.25,
+          "y": 0.0,
+          "z": 1.619
+        },
+        "Dimensions": {
+          "height": 3.238,
+          "length": 8.574,
+          "width": 2.709
+        }
+      }
+    },
+    {
+      "name": "MitsubishiFusoTanker_Trailer_Stainless",
+      "BoundingBox": {
+        "Center": {
+          "x": 3.25,
+          "y": 0.0,
+          "z": 1.619
+        },
+        "Dimensions": {
+          "height": 3.238,
+          "length": 8.574,
+          "width": 2.709
+        }
+      }
+    },
+    {
+      "name": "MitsubishiDelicaD5",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.423,
+          "y": 0.0,
+          "z": 0.925
+        },
+        "Dimensions": {
+          "height": 1.851,
+          "length": 4.79,
+          "width": 1.794
+        }
+      }
+    },
+    {
+      "name": "NissanNote",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.379,
+          "y": 0.0,
+          "z": 0.752
+        },
+        "Dimensions": {
+          "height": 1.505,
+          "length": 4.045,
+          "width": 1.695
+        }
+      }
+    },
+    {
+      "name": "NissanRoox",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.283,
+          "y": 0.0,
+          "z": 0.902
+        },
+        "Dimensions": {
+          "height": 1.805,
+          "length": 3.395,
+          "width": 1.475
+        }
+      }
+    },
+    {
+      "name": "NissanSerena",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.432,
+          "y": 0.0,
+          "z": 0.936
+        },
+        "Dimensions": {
+          "height": 1.872,
+          "length": 4.769,
+          "width": 1.731
+        }
+      }
+    },
+    {
+      "name": "NissanXtrail",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.319,
+          "y": 0.0,
+          "z": 0.874
+        },
+        "Dimensions": {
+          "height": 1.748,
+          "length": 4.642,
+          "width": 1.793
+        }
+      }
+    },
+    {
+      "name": "SubaruForester",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.327,
+          "y": 0.0,
+          "z": 0.865
+        },
+        "Dimensions": {
+          "height": 1.73,
+          "length": 4.625,
+          "width": 1.815
+        }
+      }
+    },
+    {
+      "name": "SubaruImprezaG4",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.334,
+          "y": 0.0,
+          "z": 0.727
+        },
+        "Dimensions": {
+          "height": 1.454,
+          "length": 4.636,
+          "width": 1.775
+        }
+      }
+    },
+    {
+      "name": "SubaruLevorg",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.298,
+          "y": 0.0,
+          "z": 0.75
+        },
+        "Dimensions": {
+          "height": 1.5,
+          "length": 4.744,
+          "width": 1.798
+        }
+      }
+    },
+    {
+      "name": "SubaruXV",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.403,
+          "y": 0.0,
+          "z": 0.775
+        },
+        "Dimensions": {
+          "height": 1.55,
+          "length": 4.485,
+          "width": 1.804
+        }
+      }
+    },
+    {
+      "name": "SuzukiAddressV50",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.517,
+          "y": 0.001,
+          "z": 0.808
+        },
+        "Dimensions": {
+          "height": 1.615,
+          "length": 1.672,
+          "width": 0.655
+        }
+      }
+    },
+    {
+      "name": "SuzukiJimny",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.146,
+          "y": 0.0,
+          "z": 0.863
+        },
+        "Dimensions": {
+          "height": 1.725,
+          "length": 3.392,
+          "width": 1.475
+        }
+      }
+    },
+    {
+      "name": "SuzukiSwift",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.332,
+          "y": 0.0,
+          "z": 0.75
+        },
+        "Dimensions": {
+          "height": 1.5,
+          "length": 3.845,
+          "width": 1.695
+        }
+      }
+    },
+    {
+      "name": "ToyotaAlphardCatalog",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.469,
+          "y": 0.0,
+          "z": 0.968
+        },
+        "Dimensions": {
+          "height": 1.935,
+          "length": 5.029,
+          "width": 1.873
+        }
+      }
+    },
+    {
+      "name": "ToyotaAqua",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.381,
+          "y": 0.0,
+          "z": 0.728
+        },
+        "Dimensions": {
+          "height": 1.455,
+          "length": 4.05,
+          "width": 1.695
+        }
+      }
+    },
+    {
+      "name": "ToyotaCorolla",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.286,
+          "y": 0.0,
+          "z": 0.718
+        },
+        "Dimensions": {
+          "height": 1.435,
+          "length": 4.495,
+          "width": 1.745
+        }
+      }
+    },
+    {
+      "name": "ToyotaCrown",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.312,
+          "y": 0.0,
+          "z": 0.728
+        },
+        "Dimensions": {
+          "height": 1.455,
+          "length": 4.91,
+          "width": 1.8
+        }
+      }
+    },
+    {
+      "name": "ToyotaCrown_PoliceCar",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.272,
+          "y": 0.0,
+          "z": 0.905
+        },
+        "Dimensions": {
+          "height": 1.81,
+          "length": 4.936,
+          "width": 1.8
+        }
+      }
+    },
+    {
+      "name": "ToyotaGRYaris",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.412,
+          "y": 0.0,
+          "z": 0.728
+        },
+        "Dimensions": {
+          "height": 1.455,
+          "length": 3.995,
+          "width": 1.805
+        }
+      }
+    },
+    {
+      "name": "ToyotaHiace",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.595,
+          "y": 0.001,
+          "z": 1.143
+        },
+        "Dimensions": {
+          "height": 2.285,
+          "length": 5.38,
+          "width": 1.88
+        }
+      }
+    },
+    {
+      "name": "ToyotaHimedic_Ambulance",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.555,
+          "y": 0.0,
+          "z": 1.245
+        },
+        "Dimensions": {
+          "height": 2.49,
+          "length": 5.6,
+          "width": 1.899
+        }
+      }
+    },
+    {
+      "name": "ToyotaJpntaxi",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.325,
+          "y": 0.001,
+          "z": 0.863
+        },
+        "Dimensions": {
+          "height": 1.725,
+          "length": 4.395,
+          "width": 1.691
+        }
+      }
+    },
+    {
+      "name": "ToyotaLandCruiser",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.288,
+          "y": 0.0,
+          "z": 0.94
+        },
+        "Dimensions": {
+          "height": 1.88,
+          "length": 4.946,
+          "width": 1.98
+        }
+      }
+    },
+    {
+      "name": "ToyotaLexusNX350h",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.367,
+          "y": 0.0,
+          "z": 0.83
+        },
+        "Dimensions": {
+          "height": 1.66,
+          "length": 4.66,
+          "width": 1.865
+        }
+      }
+    },
+    {
+      "name": "ToyotaLexusRX450hL",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.379,
+          "y": 0.0,
+          "z": 0.857
+        },
+        "Dimensions": {
+          "height": 1.715,
+          "length": 4.994,
+          "width": 1.919
+        }
+      }
+    },
+    {
+      "name": "ToyotaPriusCatalog",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.37,
+          "y": 0.0,
+          "z": 0.742
+        },
+        "Dimensions": {
+          "height": 1.483,
+          "length": 4.577,
+          "width": 1.758
+        }
+      }
+    },
+    {
+      "name": "ToyotaTacoma",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.437,
+          "y": 0.0,
+          "z": 0.897
+        },
+        "Dimensions": {
+          "height": 1.793,
+          "length": 5.392,
+          "width": 1.889
+        }
+      }
+    },
+    {
+      "name": "ToyotaTank",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.295,
+          "y": 0.0,
+          "z": 0.868
+        },
+        "Dimensions": {
+          "height": 1.735,
+          "length": 3.7,
+          "width": 1.67
+        }
+      }
+    },
+    {
+      "name": "ToyotaVoxy",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.402,
+          "y": 0.0,
+          "z": 0.91
+        },
+        "Dimensions": {
+          "height": 1.82,
+          "length": 4.715,
+          "width": 1.779
+        }
+      }
+    },
+    {
+      "name": "BalloonLight",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.193,
+          "y": 0.0,
+          "z": 1.4
+        },
+        "Dimensions": {
+          "height": 2.8,
+          "length": 1.225,
+          "width": 1.416
+        }
+      }
+    },
+    {
+      "name": "Barricade",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.001,
+          "y": 0.0,
+          "z": 0.4
+        },
+        "Dimensions": {
+          "height": 0.8,
+          "length": 0.493,
+          "width": 1.2
+        }
+      }
+    },
+    {
+      "name": "CardboardBox",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.148
+        },
+        "Dimensions": {
+          "height": 0.295,
+          "length": 0.44,
+          "width": 0.659
+        }
+      }
+    },
+    {
+      "name": "ColorChecker",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.188
+        },
+        "Dimensions": {
+          "height": 0.375,
+          "length": 0.003,
+          "width": 0.533
+        }
+      }
+    },
+    {
+      "name": "Colorcone",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.349
+        },
+        "Dimensions": {
+          "height": 0.699,
+          "length": 0.383,
+          "width": 0.383
+        }
+      }
+    },
+    {
+      "name": "ConcreteBlock",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.405
+        },
+        "Dimensions": {
+          "height": 0.81,
+          "length": 1.013,
+          "width": 0.46
+        }
+      }
+    },
+    {
+      "name": "ConstructionArrow",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.265
+        },
+        "Dimensions": {
+          "height": 0.53,
+          "length": 0.402,
+          "width": 0.9
+        }
+      }
+    },
+    {
+      "name": "ConstructionGuardmanRobot",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.011,
+          "y": 0.054,
+          "z": 0.953
+        },
+        "Dimensions": {
+          "height": 1.906,
+          "length": 0.867,
+          "width": 0.689
+        }
+      }
+    },
+    {
+      "name": "ConstructionMarshal",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.085,
+          "y": 0.008,
+          "z": 0.989
+        },
+        "Dimensions": {
+          "height": 1.984,
+          "length": 0.476,
+          "width": 0.64
+        }
+      }
+    },
+    {
+      "name": "ConstructionSign",
+      "BoundingBox": {
+        "Center": {
+          "x": -0.005,
+          "y": 0.0,
+          "z": 0.8
+        },
+        "Dimensions": {
+          "height": 1.6,
+          "length": 0.78,
+          "width": 1.25
+        }
+      }
+    },
+    {
+      "name": "ConstructionSignLight",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.85
+        },
+        "Dimensions": {
+          "height": 1.7,
+          "length": 0.9,
+          "width": 1.0
+        }
+      }
+    },
+    {
+      "name": "DeadAnimal",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.035,
+          "z": 0.043
+        },
+        "Dimensions": {
+          "height": 0.086,
+          "length": 0.307,
+          "width": 0.279
+        }
+      }
+    },
+    {
+      "name": "Drone",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.097
+        },
+        "Dimensions": {
+          "height": 0.194,
+          "length": 0.36,
+          "width": 0.36
+        }
+      }
+    },
+    {
+      "name": "FlickerLight",
+      "BoundingBox": {
+        "Center": {
+          "x": -0.005,
+          "y": -0.003,
+          "z": 0.096
+        },
+        "Dimensions": {
+          "height": 0.192,
+          "length": 0.064,
+          "width": 0.193
+        }
+      }
+    },
+    {
+      "name": "GrayscaleChart",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.255
+        },
+        "Dimensions": {
+          "height": 0.51,
+          "length": 0.015,
+          "width": 0.63
+        }
+      }
+    },
+    {
+      "name": "GuardFence",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.001,
+          "z": 0.9
+        },
+        "Dimensions": {
+          "height": 1.8,
+          "length": 0.03,
+          "width": 1.8
+        }
+      }
+    },
+    {
+      "name": "HSteel",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.15
+        },
+        "Dimensions": {
+          "height": 0.3,
+          "length": 7.0,
+          "width": 0.3
+        }
+      }
+    },
+    {
+      "name": "Lamp",
+      "BoundingBox": {
+        "Center": {
+          "x": -0.378,
+          "y": 0.0,
+          "z": 2.425
+        },
+        "Dimensions": {
+          "height": 4.85,
+          "length": 1.989,
+          "width": 1.572
+        }
+      }
+    },
+    {
+      "name": "ManholeCover",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.01
+        },
+        "Dimensions": {
+          "height": 0.02,
+          "length": 0.65,
+          "width": 0.65
+        }
+      }
+    },
+    {
+      "name": "OilCan",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.175
+        },
+        "Dimensions": {
+          "height": 0.35,
+          "length": 0.238,
+          "width": 0.238
+        }
+      }
+    },
+    {
+      "name": "Permaflect",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.25
+        },
+        "Dimensions": {
+          "height": 0.5,
+          "length": 0.006,
+          "width": 0.5
+        }
+      }
+    },
+    {
+      "name": "PotatoChipsBag",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.065
+        },
+        "Dimensions": {
+          "height": 0.13,
+          "length": 0.235,
+          "width": 0.202
+        }
+      }
+    },
+    {
+      "name": "RoadFlare",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": -0.041,
+          "z": 0.017
+        },
+        "Dimensions": {
+          "height": 0.033,
+          "length": 0.036,
+          "width": 0.367
+        }
+      }
+    },
+    {
+      "name": "Roadpole",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.394
+        },
+        "Dimensions": {
+          "height": 0.799,
+          "length": 0.15,
+          "width": 0.15
+        }
+      }
+    },
+    {
+      "name": "Roadstud",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.01
+        },
+        "Dimensions": {
+          "height": 0.02,
+          "length": 0.15,
+          "width": 0.105
+        }
+      }
+    },
+    {
+      "name": "Searchlight",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "Dimensions": {
+          "height": 0.62,
+          "length": 1.0,
+          "width": 0.62
+        }
+      }
+    },
+    {
+      "name": "ShoppingCart",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.504
+        },
+        "Dimensions": {
+          "height": 1.007,
+          "length": 0.932,
+          "width": 0.586
+        }
+      }
+    },
+    {
+      "name": "Soccerball",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.11
+        },
+        "Dimensions": {
+          "height": 0.22,
+          "length": 0.22,
+          "width": 0.22
+        }
+      }
+    },
+    {
+      "name": "Tire",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.075
+        },
+        "Dimensions": {
+          "height": 0.15,
+          "length": 0.5,
+          "width": 0.5
+        }
+      }
+    },
+    {
+      "name": "ValidationBox",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 50.0
+        },
+        "Dimensions": {
+          "height": 100.0,
+          "length": 100.0,
+          "width": 100.0
+        }
+      }
+    },
+    {
+      "name": "WarningTriangle",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.214
+        },
+        "Dimensions": {
+          "height": 0.428,
+          "length": 0.032,
+          "width": 0.452
+        }
+      }
+    },
+    {
+      "name": "reflector_plate_101_4mm",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.021
+        },
+        "Dimensions": {
+          "height": 0.124,
+          "length": 1.0,
+          "width": 0.143
+        }
+      }
+    },
+    {
+      "name": "reflector_solid_101_4mm",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.029,
+          "y": 0.0,
+          "z": 0.021
+        },
+        "Dimensions": {
+          "height": 0.124,
+          "length": 0.059,
+          "width": 0.143
+        }
+      }
+    },
+    {
+      "name": "ego",
+      "BoundingBox": {
+        "Center": {
+          "x": 4.125,
+          "y": 0.0,
+          "z": 1.75
+        },
+        "Dimensions": {
+          "height": 3.5,
+          "length": 16.5,
+          "width": 2.55
+        }
+      }
+    },
+    {
+      "name": "opp",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.08,
+          "y": 0.0,
+          "z": 0.75
+        },
+        "Dimensions": {
+          "height": 1.5,
+          "length": 4.32,
+          "width": 2.06
+        }
+      }
+    },
+    {
+      "name": "veh224",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.565,
+          "y": 0.0,
+          "z": 1.5
+        },
+        "Dimensions": {
+          "height": 3.0,
+          "length": 10.26,
+          "width": 2.3
+        }
+      }
+    },
+    {
+      "name": "veh228",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.51,
+          "y": 0.0,
+          "z": 1.25
+        },
+        "Dimensions": {
+          "height": 2.5,
+          "length": 6.04,
+          "width": 2.4
+        }
+      }
+    },
+    {
+      "name": "veh230",
+      "BoundingBox": {
+        "Center": {
+          "x": 4.125,
+          "y": 0.0,
+          "z": 1.75
+        },
+        "Dimensions": {
+          "height": 3.5,
+          "length": 16.5,
+          "width": 2.55
+        }
+      }
+    },
+    {
+      "name": "veh234",
+      "BoundingBox": {
+        "Center": {
+          "x": 4.125,
+          "y": 0.0,
+          "z": 1.75
+        },
+        "Dimensions": {
+          "height": 3.5,
+          "length": 16.5,
+          "width": 2.55
+        }
+      }
+    },
+    {
+      "name": "veh243",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.565,
+          "y": 0.0,
+          "z": 1.5
+        },
+        "Dimensions": {
+          "height": 3.0,
+          "length": 10.26,
+          "width": 2.3
+        }
+      }
+    },
+    {
+      "name": "veh253",
+      "BoundingBox": {
+        "Center": {
+          "x": 4.125,
+          "y": 0.0,
+          "z": 1.75
+        },
+        "Dimensions": {
+          "height": 3.5,
+          "length": 16.5,
+          "width": 2.55
+        }
+      }
+    },
+    {
+      "name": "veh256",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.51,
+          "y": 0.0,
+          "z": 1.25
+        },
+        "Dimensions": {
+          "height": 2.5,
+          "length": 6.04,
+          "width": 2.4
+        }
+      }
+    },
+    {
+      "name": "veh259",
+      "BoundingBox": {
+        "Center": {
+          "x": 0.89,
+          "y": 0.0,
+          "z": 0.75
+        },
+        "Dimensions": {
+          "height": 1.5,
+          "length": 3.56,
+          "width": 1.88
+        }
+      }
+    },
+    {
+      "name": "veh271",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.05,
+          "y": 0.0,
+          "z": 0.75
+        },
+        "Dimensions": {
+          "height": 1.5,
+          "length": 4.2,
+          "width": 1.91
+        }
+      }
+    },
+    {
+      "name": "veh276",
+      "BoundingBox": {
+        "Center": {
+          "x": 2.565,
+          "y": 0.0,
+          "z": 1.5
+        },
+        "Dimensions": {
+          "height": 3.0,
+          "length": 10.26,
+          "width": 2.3
+        }
+      }
+    },
+    {
+      "name": "veh364",
+      "BoundingBox": {
+        "Center": {
+          "x": 1.51,
+          "y": 0.0,
+          "z": 1.25
+        },
+        "Dimensions": {
+          "height": 2.5,
+          "length": 6.04,
+          "width": 2.4
+        }
+      }
+    }
+  ]
+}

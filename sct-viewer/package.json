@@ -1,0 +1,44 @@
+{
+  "name": "sct-viewer",
+  "version": "0.1.0",
+  "description": "SCT（Safety Cushion Time）算出ツール",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "cargo build -p sct-core --release && tauri build && node scripts/create-release-package.js",
+    "package": "node scripts/create-release-package.js",
+    "pptx": "marp docs/USAGE.md -o docs/pptx/USAGE.pptx",
+    "pptx_sct": "marp docs/SCT_calculation.md -o docs/pptx/SCT_calculation.pptx",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-jp": "^5.2.9",
+    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/plugin-dialog": "^2.6.0",
+    "chart.js": "^4.4.0",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.3.1",
+    "sat": "^0.9.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.4.0",
+    "@tauri-apps/cli": "^2.10.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/sat": "^0.0.35",
+    "@vitejs/plugin-react": "^4.3.0",
+    "jsdom": "^27.0.1",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vitest": "^3.2.4"
+  }
+}

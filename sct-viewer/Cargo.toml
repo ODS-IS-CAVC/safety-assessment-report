@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "src-tauri",
+    "sct-core",
+]
+resolver = "2"
+
+# sct-coreのリリースビルド最適化（シンボル除去、LTO）
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
