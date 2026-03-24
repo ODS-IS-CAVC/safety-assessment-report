@@ -15,18 +15,24 @@ const platformConfig = {
   win32: {
     exeName: 'sct-viewer.exe',
     libs: ['esminiLib.dll', 'esminiRMLib.dll'],
+    sctCoreLib: 'sct_core.dll',
+    sctCorePrebuilt: path.join(projectRoot, 'sct-core', 'prebuilt', 'win', 'sct_core.dll'),
     zipName: 'sct-viewer_portable_win.zip',
     extraFiles: ['vehicle_bbox.json'],
   },
   darwin: {
     exeName: 'sct-viewer',
     libs: ['libesminiLib.dylib', 'libesminiRMLib.dylib'],
+    sctCoreLib: 'libsct_core.dylib',
+    sctCorePrebuilt: path.join(projectRoot, 'sct-core', 'prebuilt', 'mac', 'libsct_core.dylib'),
     zipName: 'sct-viewer_portable_mac.zip',
     extraFiles: ['vehicle_bbox.json'],
   },
   linux: {
     exeName: 'sct-viewer',
     libs: ['libesminiLib.so', 'libesminiRMLib.so'],
+    sctCoreLib: 'libsct_core.so',
+    sctCorePrebuilt: path.join(projectRoot, 'sct-core', 'prebuilt', 'linux', 'libsct_core.so'),
     zipName: 'sct-viewer_portable_linux.zip',
     extraFiles: ['vehicle_bbox.json'],
   },
@@ -70,6 +76,20 @@ requiredFiles.forEach(file => {
   fs.copyFileSync(src, dst);
   console.log(`   ✅ ${file}`);
 });
+
+// sct-coreライブラリをコピー（ビルド成果物優先、なければプリビルド）
+const sctCoreDst = path.join(packageDir, config.sctCoreLib);
+const sctCoreInRelease = path.join(releaseDir, config.sctCoreLib);
+
+if (fs.existsSync(sctCoreInRelease)) {
+  fs.copyFileSync(sctCoreInRelease, sctCoreDst);
+  console.log(`   ✅ ${config.sctCoreLib} (from build)`);
+} else if (fs.existsSync(config.sctCorePrebuilt)) {
+  fs.copyFileSync(config.sctCorePrebuilt, sctCoreDst);
+  console.log(`   ✅ ${config.sctCoreLib} (from prebuilt)`);
+} else {
+  console.warn(`   ⚠️  ${config.sctCoreLib} が見つかりません（ビルド成果物・プリビルド両方不在）`);
+}
 
 // ZIPを作成
 console.log('🗜️  Creating ZIP archive...');
