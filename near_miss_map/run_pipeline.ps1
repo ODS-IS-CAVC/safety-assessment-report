@@ -7,7 +7,7 @@ $jpSheet = [string]::Concat([char[]](0x96C6, 0x8A08, 0x8868))
 $mobilityDx = [string]::Concat([char[]](0x30E2, 0x30D3, 0x30EA, 0x30C6, 0x30A3))
 
 # Inclusive logs root. Real files live under car_week/csv/*.csv.
-$logsRoot = "\\192.168.16.5\Public\tmp_" + $mobilityDx + "DX_HDD"
+$logsRoot = "Your_Log_Roots"
 $routesGlob = "**/csv/*.csv"
 $logsGlobForMap = "**/csv/*.csv"
 $legacySheet = "AllPoints_1018"
@@ -19,10 +19,10 @@ $buildManifestIfMissing = $true
 $rebuildCsvOnlyManifest = $true
 
 # Excel inputs
-$jpExcel = ".\sheet_v2.xlsx"
-$legacyExcel = ".\route_nearmiss_analysis_with_dx_and_unknown_GROUPED_v12_all1018.xlsx"
+$jpExcel = ".\sheet_sample.xlsx"
+$legacyExcel = ".\sheet_sample_v2.xlsx"
 if (-not (Test-Path $legacyExcel)) {
-  $legacyExcel = ".\AllPoints_1018.xlsx"
+  $legacyExcel = ".\sheet_sample_v3.xlsx"
 }
 
 $allowlistScript = ".\make_allowlist_carweek_from_excel.py"
