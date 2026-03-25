@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------
+# Private data inputs – never commit
+# ---------------------------------------------------------------
+*.xlsx
+*.xls
+*.csv
+
+# ---------------------------------------------------------------
+# Pipeline outputs (machine-generated)
+# ---------------------------------------------------------------
+pipeline_out/
+ab_out/
+exposure_out/
+routes_out/
+
+# ---------------------------------------------------------------
+# OSM / geocoding caches (may contain private location data)
+# ---------------------------------------------------------------
+osm_label_cache.json
+osm_reverse_cache.json
+osm_overpass_cache.json
+latlon_cache.json
+*_cache.json
+
+# ---------------------------------------------------------------
+# Log manifests (contain private UNC paths)
+# ---------------------------------------------------------------
+logs_manifest.txt
+log_files_by_carweek*.json
+
+# ---------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# ---------------------------------------------------------------
+# OS / editor artifacts
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo

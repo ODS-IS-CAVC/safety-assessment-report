@@ -1,0 +1,19 @@
+# Example config for the legacy no-routes pipeline.
+# Keep this file free of private UNC roots or researcher-specific local paths.
+
+LOGS_ROOT=\\YOUR_SERVER\share\mobility_logs
+LOGS_GLOB=**/*.txt
+
+# Primary JP workbook
+EXCEL_PATH=sheet_v2.xlsx
+SHEET=集計表
+
+# Optional legacy workbook for enrichment / fallback
+OLD_EXCEL_PATH=AllPoints_1018.xlsx
+OLD_SHEET=AllPoints_1018
+
+LABEL_CACHE=osm_label_cache.json
+OSM_CACHE=
+WORKDIR=pipeline_out
+OUT_HTML=nearmiss_points_map_v67_jp_noroutes.html
+PYTHON=python
