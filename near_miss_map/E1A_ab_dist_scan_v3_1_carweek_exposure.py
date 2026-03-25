@@ -43,7 +43,7 @@ Outputs
 Example
 -------
 python ab_dist_scan.py \
-  --root "\\\\192.168.16.5\\Public\\モビリティDX_HDD" \
+  --root "Path_To_Log" \
   --glob "**/csv/*.txt" \
   --a 35.46463,139.43556 \
   --b 35.35033,139.22489 \
