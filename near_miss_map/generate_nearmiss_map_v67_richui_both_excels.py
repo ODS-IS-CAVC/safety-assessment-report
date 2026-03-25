@@ -4,8 +4,6 @@
 generate_nearmiss_map_v67_richui_both_excels.py
 
 Goal:
-- Keep the "rich" UI (chip panels / close / reopen) similar to the newer UI,
-  but treat it as the v67 baseline requested by the user.
 - Read BOTH excels:
     1) ニアミス抽出_進捗管理表.xlsx (sheet: 集計表)  [JP progress]
     2) route_nearmiss_analysis_with_dx_and_unknown_GROUPED_v12_all1018.xlsx (sheet: AllPoints_1018) [legacy 1018]
