@@ -29,34 +29,48 @@ dashcam-preprocessorの出力がそのまま入力となります：
 ```
 /mnt/data/
 ├── input/
-│   ├── NearMiss_Info.json             # カメラパラメータ
-│   └── gsensor_gps_*.txt              # GPS/Gセンサーデータ
-├── image_distortion/{front,rear}/     # 歪み補正済み画像
-└── segmentation/{front,rear}/
-    ├── segmentation_results.json      # 検出結果
-    └── segmentation_cv.mp4            # 可視化動画
+│   ├── NearMiss_Info.json                    # カメラパラメータ
+│   └── gsensor_gps_*.txt                     # GPS/Gセンサーデータ
+└── intermediate/image/
+    ├── distortion/{front,rear}/              # 歪み補正済み画像
+    └── segmentation/{front,rear}/
+        ├── segmentation_results.json         # 検出結果
+        └── segmentation_cv.mp4              # 可視化動画
 ```
 
 ## 出力データ
 
 ```
 /mnt/data/
-├── lane/{front,rear}/                 # 車線検出結果
-│   └── lane_detection_results.json
-├── lane/{front,rear}_lane.mp4         # 車線可視化動画
-├── trajectory/
-│   ├── ego.csv                        # 自車両データ（センサー統合済み）
-│   ├── front_lane.csv                 # 前方車線位置
-│   ├── rear_lane.csv                  # 後方車線位置
-│   └── trajectory_f*.csv             # 車両ごとの軌跡・SCT/TTC
+├── intermediate/                             # 中間生成物
+│   ├── image/
+│   │   ├── lane/{front,rear}/               # 車線検出オーバーレイ画像
+│   │   │   └── lane_detection_results.json
+│   │   └── frame/{front,rear}/              # 抽出フレーム画像
+│   ├── plot/                                 # グラフ・マップ可視化
+│   └── tmp/                                  # 一時ファイル
 │
-│  # 以下 --enable-scenario 指定時のみ
-├── job/scenario/                      # シナリオ生成結果
-├── job/sdmg/                          # SDMG形式シナリオ
-├── job/xosc/scenario.xosc            # OpenSCENARIO
-├── summary/trajectory_summary.json    # 軌跡サマリー
-├── summary/summary_video.mp4          # サマリー動画
-└── plot/                              # 軌跡プロット画像
+└── output/                                   # 最終成果物
+    ├── ego/
+    │   └── ego.csv                           # 自車両データ（センサー統合済み）
+    ├── lane_distance/
+    │   ├── front_lane.csv                    # 前方車線位置
+    │   └── rear_lane.csv                     # 後方車線位置
+    ├── distance/
+    │   └── distance_*.csv                    # 対象物距離
+    ├── sct/
+    │   └── trajectory_*.csv                  # 車両ごとの軌跡・SCT/TTC
+    ├── video/
+    │   ├── front_lane.mp4                    # 車線可視化動画
+    │   ├── segmentation_front.mp4            # セグメンテーション動画
+    │   ├── segmentation_rear.mp4             # セグメンテーション動画（後方）
+    │   └── summary/summary_video.mp4         # サマリー動画
+    │
+    │  # 以下 --enable-scenario 指定時のみ
+    └── scenario/
+        ├── vehicle_route_*.csv               # シナリオ生成結果
+        ├── sdmg/scenario.xml                 # SDMG形式シナリオ
+        └── xosc/scenario.xosc               # OpenSCENARIO
 ```
 
 ## コンテナビルド
@@ -73,8 +87,11 @@ docker build -t sim-generation-app .
 
 ### ビルドの流れ
 
-1. **Stage 1 (sct-builder)**: Cythonで`trajectory/sct.py`をコンパイルし`.so`を生成
-2. **Stage 2 (runtime)**: Python依存パッケージをインストール、HybridNetsをclone、アプリケーションコードをコピー、`.so`のみを配置
+1. deadsnakes PPAから安定版Python 3.11をインストール
+2. Python依存パッケージをインストール（PyTorch CUDA 11.8対応版を含む）
+3. アプリケーションコードをコピー、プリビルド済み`sct.so`を配置
+4. HybridNetsリポジトリをclone、重みファイルをダウンロード
+5. EfficientNet-B3のpretrained weightsをキャッシュ
 
 ## 実行方法
 

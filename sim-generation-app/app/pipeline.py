@@ -575,6 +575,14 @@ def main():
         rear_seg_video = os.path.join(seg_rear_dir, 'segmentation_cv.mp4')
         if not os.path.isfile(rear_frame_file) and os.path.isfile(rear_seg_video):
             extact_image.extract(rear_seg_video, rear_img_dir, rear_frame_file, frame_step, time_step)
+
+        # セグメンテーション動画を output/video にコピー（確認用）
+        video_dir = paths['output_video']
+        if os.path.isfile(front_seg_video):
+            shutil.copyfile(front_seg_video, os.path.join(video_dir, 'segmentation_front.mp4'))
+        if os.path.isfile(rear_seg_video):
+            shutil.copyfile(rear_seg_video, os.path.join(video_dir, 'segmentation_rear.mp4'))
+
         save_job_status(status_file, STEPS[2])
         step_times['Step 4'] = time.monotonic() - _t0
         logging.info("=== Step 4 完了 (%.1f秒) ===", step_times['Step 4'])

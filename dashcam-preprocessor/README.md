@@ -28,9 +28,9 @@ AGPL-3.0（YOLOv8 / Ultralytics の依存によるもの）
 ## 出力データ
 
 ```
-/mnt/data/
-├── image_src/{front,rear}/        # 抽出画像
-├── image_distortion/{front,rear}/ # 歪み補正済み画像
+/mnt/data/intermediate/image/
+├── src/{front,rear}/              # 抽出画像
+├── distortion/{front,rear}/       # 歪み補正済み画像
 └── segmentation/{front,rear}/
     ├── segmentation_results.json  # 検出結果（BBox, マスク, トラッキングID）
     ├── segmentation_cv.mp4        # 可視化動画
