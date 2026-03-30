@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spaceDesignModel>
+	<header name="scenario" version="0.14.0.0"/>
+	<definitions>
+		<filePaths>
+			<filePath path=".\" target="" type="output"/>
+		</filePaths>
+		<simulation>
+			<hat state="off"/>
+		</simulation>
+	</definitions>
+	<space>
+		<environments>
+			<environment id="environment_1">
+				<timeOfDay>
+					<date day="25" month="11" year="2020"/>
+					<time hour="12" min="0"/>
+				</timeOfDay>
+				<weather cloudState="sunny">
+					<precipitation intensity="0.0000000000"/>
+					<wind direction="0.0000000000" speed="0.0000000000"/>
+				</weather>
+				<weatherLocation elevation="0.0000000000" latitude="0.62186081248558" longitude="2.43962122843767" region="japan" standardTimeMeridian="2.3561944902"/>
+			</environment>
+		</environments>
+		<views>
+			<view id="view_1">
+				<position x="0.0000000000" y="0.0000000000" z="0.0000000000"/>
+				<attitude x="0.0000000000" y="0.0000000000" z="0.0000000000"/>
+				<clippingDistance left="1.0000000000" rigth="10000.0000000000"/>
+				<asymmetricFov bottom="-0.6632251158" left="-0.7853981634" rigth="0.7853981634" top="0.6632251158"/>
+				<linker entityId="" entityType="object" id="linkerid_1">
+					<coordinate type="relative">
+						<position x="0.0000000000" y="0.0000000000" z="0.0000000000"/>
+						<attitude x="0.0000000000" y="0.0000000000" z="0.0000000000"/>
+					</coordinate>
+				</linker>
+			</view>
+		</views>
+		<objects>
+			<object id="divp_Veh_HinoProfia_self" role="" subtype="bus" type="vehicle">
+				<modelFile file="divp_Veh_HinoProfia.fbx"/>
+				<position x="0.0000000000" y="0.0000000000" z="0.0000000000" />
+				<attitude x="0.0000000000" y="0.0000000000" z="0.0000000000" />	
+				<boundingBox>
+					<center x="2.5360000000" y="0.0000000000" z="1.8490000000"/>
+					<dimensions height="3.6980000000" length="11.8700000000" width="2.5640000000"/>
+				</boundingBox>
+				<camera id="camera_1">
+					<coordinate type="relative">
+						<position x="8.1000000000" y="0.0000000000" z="2.5960000000"/>
+						<attitude x="0.0000000000" y="0.1010545637" z="0.0000000000"/>
+					</coordinate>
+					<product name="Camera"/>
+					<asymmetricFov bottom="-0.6370451770" left="-1.0471975512" right="1.0471975512" top="0.6370451770"/>
+					<clippingDistance far="100.0000000000" near="0.1000000000"/>
+				</camera>
+			</object>
+		</objects>
+		<maps>
+			<map id="map_1">
+			</map>
+		</maps>
+	</space>
+	<scenarios>
+		<concreteScenarios>
+			<concreteScenario id="scenario_1">
+				<initialization>
+					<entity id="environment_1" type="environment">
+						<event id="event_1" index="0"/>
+					</entity>
+					<entity id="map_1" type="map">
+						<event id="event_2" index="0"/>
+					</entity>
+				</initialization>
+				<execution/>
+			</concreteScenario>
+		</concreteScenarios>
+	</scenarios>
+	<outputs/>
+</spaceDesignModel>

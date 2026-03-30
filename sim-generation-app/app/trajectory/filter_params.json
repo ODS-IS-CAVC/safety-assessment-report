@@ -1,0 +1,40 @@
+{
+  "description": "フィルタリングパラメータ設定ファイル",
+  "version": "1.0",
+
+  "x_axis_stages": [
+    {
+      "name": "軽い平滑化",
+      "repeat": 1,
+      "moving_average_window": 3,
+      "median_window": 3,
+      "outlier_threshold": 5.0
+    }
+  ],
+
+  "y_axis_stages": [
+    {
+      "name": "中程度の平滑化",
+      "repeat": 2,
+      "moving_average_window": 7,
+      "median_window": 5,
+      "outlier_threshold": 5.0
+    },
+    {
+      "name": "強い平滑化",
+      "repeat": 3,
+      "moving_average_window": 11,
+      "median_window": 9,
+      "outlier_threshold": 5.0
+    }
+  ],
+
+  "options": {
+    "fully_contained_only": true,
+    "use_separate_axis_filtering": true,
+    "min_points": 3,
+    "outlier_filter": true,
+    "moving_average_filter": true,
+    "median_filter": true
+  }
+}

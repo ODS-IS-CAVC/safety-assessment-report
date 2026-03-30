@@ -1,0 +1,20 @@
+<objects>
+    <object id="divp_Veh_HinoProfia" role="" subtype="bus" type="vehicle">
+        <modelFile file="divp_Veh_HinoProfia.fbx"/>
+        <position x="0.0000000000" y="0.0000000000" z="0.0000000000" />
+        <attitude x="0.0000000000" y="0.0000000000" z="0.0000000000" />
+        <boundingBox>
+            <center x="2.5360000000" y="0.0000000000" z="1.8490000000"/>
+            <dimensions height="3.6980000000" length="11.8700000000" width="2.5640000000"/>
+        </boundingBox>
+    </object>
+    <object id="divp_Veh_HondaFreed" role="" subtype="car" type="vehicle">
+        <modelFile file="divp_Veh_HondaFreed.fbx"/>
+        <position x="0.0000000000" y="0.0000000000" z="0.0000000000" />
+        <attitude x="0.0000000000" y="0.0000000000" z="0.0000000000" />
+        <boundingBox>
+            <center x="1.3850000000" y="0.0000000000" z="0.8590000000"/>
+            <dimensions height="1.7170000000" length="4.2900000000" width="1.6950000000"/>
+        </boundingBox>
+    </object>
+</objects>

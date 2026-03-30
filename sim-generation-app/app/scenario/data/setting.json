@@ -1,0 +1,72 @@
+{
+    "simulation_fps": 10,
+    "scenario_xml": {
+      "scenario_file": "scenario_csv.xml",
+      "scenario_id": "scenario_1"
+    },
+    "map": {
+      "latitude": "N35.63",
+      "longitude": "E139.78",
+      "elevation": 0,
+      "standard_time_meridian": "E135.0"
+    },
+    "date": {
+      "year": "2020",
+      "month": "11",
+      "day": "25",
+      "hour": "11",
+      "minute": "0"
+    },
+    "weather": {
+      "type": "Sunny",
+      "cloud_thickness": 0,
+      "precipitation": "0"
+    },
+    "camera": [
+      {
+        "id": "camera_1",
+        "rendering": {
+          "fps": 3
+        },
+        "perception": {
+          "fps": 3
+        }
+      }
+    ],
+    "lidar": [
+      {
+        "id": "lidar_1",
+        "rendering": {
+          "fps": null
+        },
+        "transmitter": {
+          "fps": null
+        },
+        "receiver": {
+          "fps": null
+        }
+      }
+    ],
+    "radar": [
+      {
+        "id": "mmwradar_1",
+        "rendering": {
+          "fps": null
+        },
+        "perception": {
+          "fps": null
+        }
+      }
+    ],
+    "rendering": {
+      "background": {
+        "type": "SkyFile",
+        "is_observation_spot_jp": false
+      }
+    },
+    "scenario_end_time": {
+      "enable": true,
+      "end_time": 0
+    },
+    "rotation_order": "XYZ"
+  }

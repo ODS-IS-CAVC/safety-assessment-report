@@ -1,0 +1,38 @@
+{
+    "truck": {
+        "csv_file": "",
+        "name": "",
+        "vehicleCategory": "bus",
+        "model3d": "asset\\divp_Veh_HinoProfia.fbx",
+        "boundingBox": {
+          "center": {
+            "x": 2.536,
+            "y": 0.0,
+            "z": 1.849
+          },
+          "dimensions": {
+            "width": 3.698,
+            "length": 11.87,
+            "height": 2.564
+          }
+        }
+    },
+    "car": {
+        "csv_file": "",
+        "name": "",
+        "vehicleCategory": "car",
+        "model3d": "asset\\divp_Veh_HondaFreed.fbx",
+        "boundingBox": {
+          "center": {
+            "x": 1.385,
+            "y": 0.0,
+            "z": 0.859
+          },
+          "dimensions": {
+            "width": 1.717,
+            "length": 4.29,
+            "height": 1.695
+          }
+        }
+    }
+}
