@@ -73,7 +73,6 @@ docker run -v /path/to/data:/mnt/data \
 | `BASE_DIR` | `/mnt/data` | データディレクトリのパス |
 | `CAMERA_DIRECTIONS` | `front rear` | 処理対象のカメラ方向 |
 | `FRAME_SKIP` | `1` | フレーム抽出間隔 |
-| `IS_LOCAL` | `false` | ローカル実行モード（PREPAREステップをスキップ） |
 
 ## 後段処理との連携
 

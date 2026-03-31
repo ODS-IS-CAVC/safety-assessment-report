@@ -48,10 +48,10 @@ def build_paths(base_dir):
 
         # グラフ・マップ可視化
         'plot': os.path.join(inter, 'plot'),
+        'graph': os.path.join(inter, 'graph'),
 
         # 一時ファイル
         'tmp': os.path.join(inter, 'tmp'),
-        'tmp_graph': os.path.join(inter, 'tmp', 'graph'),
 
         # 中間データ（SCT計算の入力）
         'intermediate_distance': os.path.join(inter, 'distance'),

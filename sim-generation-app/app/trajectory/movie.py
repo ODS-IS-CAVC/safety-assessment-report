@@ -1,5 +1,6 @@
 import os
 import sys
+import glob
 import cv2
 import shutil
 import pandas as pd
@@ -215,7 +216,9 @@ def make_movie(ego_data_file, front_lane_detection_results_json, rear_lane_detec
     for i in range(0, len(f)):
         frame = f[i]
 
-        front_img_file = front_img_dir + str(frame) + '.png'
+        front_img_file = os.path.join(front_img_dir, f'front_trim_{frame:05d}_seg.jpg')
+        if not os.path.isfile(front_img_file):
+            front_img_file = os.path.join(front_img_dir, f'front_trim_{frame:05d}.jpg')
         if os.path.isfile(front_img_file):
             img1 = imread(front_img_file)
 
@@ -305,7 +308,9 @@ def make_movie(ego_data_file, front_lane_detection_results_json, rear_lane_detec
                     '''
 
 
-        rear_img_file = rear_img_dir + str(frame) + '.png'
+        rear_img_file = os.path.join(rear_img_dir, f'rear_trim_{frame:05d}_seg.jpg')
+        if not os.path.isfile(rear_img_file):
+            rear_img_file = os.path.join(rear_img_dir, f'rear_trim_{frame:05d}.jpg')
         if os.path.isfile(rear_img_file):
             img2 = imread(rear_img_file)
 

@@ -38,6 +38,10 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # アプリケーションコードのコピー
 COPY app/ /app/
 
+# YOLOv8x-seg モデルをビルド時にダウンロード（実行時のロードパスに配置）
+RUN python -c "from ultralytics import YOLO; YOLO('yolov8x-seg.pt')" \
+    && mv yolov8x-seg.pt /app/distortion/yolov8x-seg.pt
+
 RUN chmod +x /app/entrypoint.sh
 
 ENV BASE_DIR=/mnt/data

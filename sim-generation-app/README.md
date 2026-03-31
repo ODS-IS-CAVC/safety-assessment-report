@@ -15,7 +15,7 @@ Apache-2.0
 | 4 | 画像抽出 | セグメンテーション動画からフレームを抽出 |
 | 5 | 自車データ構築 | GPS/Gセンサーデータとの統合 |
 | 6 | 自車-車線距離算出 | 自車両と車線境界との距離計算 |
-| 7 | SCT/TTC計算 | Safety Cushion Time / Time-To-Collision の算出 |
+| 7 | SCT/TTC計算 + 可視化 | SCT/TTC算出、センサーグラフ・GPSマップ・上面視グラフ生成、動画作成 |
 | 8 | シナリオ生成（オプション） | 平滑化→軌跡生成→OpenSCENARIO出力 |
 
 ## 前提条件
@@ -47,30 +47,31 @@ dashcam-preprocessorの出力がそのまま入力となります：
 │   │   ├── lane/{front,rear}/               # 車線検出オーバーレイ画像
 │   │   │   └── lane_detection_results.json
 │   │   └── frame/{front,rear}/              # 抽出フレーム画像
-│   ├── plot/                                 # グラフ・マップ可視化
+│   ├── distance/                             # 対象物距離 (distance_*.csv)
+│   ├── lane_distance/                        # 自車-車線距離 (front_lane.csv等)
+│   ├── graph/                                # 速度・加速度・GPS・上面視グラフ画像
 │   └── tmp/                                  # 一時ファイル
 │
 └── output/                                   # 最終成果物
-    ├── ego/
-    │   └── ego.csv                           # 自車両データ（センサー統合済み）
-    ├── lane_distance/
-    │   ├── front_lane.csv                    # 前方車線位置
-    │   └── rear_lane.csv                     # 後方車線位置
-    ├── distance/
-    │   └── distance_*.csv                    # 対象物距離
-    ├── sct/
+    ├── trajectory/
+    │   ├── ego.csv                           # 自車両データ（センサー統合済み）
     │   └── trajectory_*.csv                  # 車両ごとの軌跡・SCT/TTC
     ├── video/
     │   ├── front_lane.mp4                    # 車線可視化動画
     │   ├── segmentation_front.mp4            # セグメンテーション動画
     │   ├── segmentation_rear.mp4             # セグメンテーション動画（後方）
-    │   └── summary/summary_video.mp4         # サマリー動画
+    │   └── topview.mp4                       # 上面視・センサー統合動画
     │
     │  # 以下 --enable-scenario 指定時のみ
-    └── scenario/
-        ├── vehicle_route_*.csv               # シナリオ生成結果
-        ├── sdmg/scenario.xml                 # SDMG形式シナリオ
-        └── xosc/scenario.xosc               # OpenSCENARIO
+    ├── scenario/
+    │   ├── vehicle_route_*.csv               # シナリオ生成結果
+    │   ├── sdmg/scenario.xml                 # SDMG形式シナリオ
+    │   └── xosc/scenario.xosc               # OpenSCENARIO
+    │
+    │  # 以下 --enable-scenario 指定時のみ (output/video/ 内)
+    └── video/
+        ├── trajectory_summary.json           # 軌跡サマリー
+        └── summary_video.mp4                 # サマリー動画
 ```
 
 ## コンテナビルド
@@ -137,3 +138,5 @@ docker run -v /path/to/data:/mnt/data \
 | `--map-data-path` | 環境変数`MAP_DATA_PATH` | マップデータのパス |
 | `--videos-fps` | `30` | 元動画のFPS（シナリオ生成用） |
 | `--extend-trajectory` | `false` | 他車両軌跡のOpenDRIVE上での延長 |
+| `--start-step` | なし | 指定したステップ番号(1-8)から再開 |
+| `--movie-use-segmentation` | `false` | 動画生成でセグメンテーション画像を使用 |

@@ -238,7 +238,7 @@ def plot_opponent(opo, dist):
     v_tmp_x = [min_x, min_x, max_x, max_x, min_x]
     v_tmp_y = [min_y, max_y, max_y, min_y, min_y]
     plt.plot(v_tmp_x + dist, v_tmp_y, color="blue")
-    plt.text(min_x + dist, max_y + 0.3, str(opo.vid), fontname='Yu Gothic', fontsize=10)
+    plt.text(min_x + dist, max_y + 0.3, str(opo.vid), fontsize=10)
 
     txt = ''
     if 0 <= opo.sctx and opo.sctx <= 8:
@@ -249,7 +249,7 @@ def plot_opponent(opo, dist):
     if 0 <= opo.scty and opo.scty <= 8:
         txt_scty = 'SCTy:{:.1f}'.format(opo.scty)
     txt += txt_scty
-    plt.text(max_x+2 + dist, min_y-1, txt, fontname='Yu Gothic', fontsize=10)
+    plt.text(max_x+2 + dist, min_y-1, txt, fontsize=10)
 
 
 def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, length, front_seg_json, rear_seg_json, objects_dir, out_graph_dir, near_vehicles_file_name):
@@ -305,21 +305,21 @@ def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, 
 
     if front_seg_json is not None:
         for val in front_seg_json['results']:
-            tensor_datas = val['tensor_data']
-            for tensor_data in tensor_datas:
-                vid = 'f' + str(tensor_data['ID'])
-                cls = tensor_data['Class']
-                if not vid in tmp_vid_class_map:
+            seg_items = val.get('segmentations') or val.get('tensor_data') or []
+            for item in seg_items:
+                vid = 'f' + str(item.get('obj_id') or item.get('ID'))
+                cls = item.get('vehicle_type') or item.get('Class')
+                if vid not in tmp_vid_class_map:
                     tmp_vid_class_map[vid] = []
                 tmp_vid_class_map[vid].append(cls)
 
     if rear_seg_json is not None:
         for val in rear_seg_json['results']:
-            tensor_datas = val['tensor_data']
-            for tensor_data in tensor_datas:
-                vid = 'r' + str(tensor_data['ID'])
-                cls = tensor_data['Class']
-                if not vid in tmp_vid_class_map:
+            seg_items = val.get('segmentations') or val.get('tensor_data') or []
+            for item in seg_items:
+                vid = 'r' + str(item.get('obj_id') or item.get('ID'))
+                cls = item.get('vehicle_type') or item.get('Class')
+                if vid not in tmp_vid_class_map:
                     tmp_vid_class_map[vid] = []
                 tmp_vid_class_map[vid].append(cls)
 
@@ -535,11 +535,11 @@ def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, 
                 txt += txt_scty
 
                 if disp_sct:
-                    plt.text(max_x+2 + dst[i], min_y-1, txt, fontname='Yu Gothic', fontsize=10, color="skyblue")
+                    plt.text(max_x+2 + dst[i], min_y-1, txt, fontsize=10, color="skyblue")
                     #plt.text(max_x+2 + dst[i], min_y-1, txt, fontsize=9)
 
                     plt.plot(v_tmp_x + dst[i], v_tmp_y, color="skyblue")
-                    plt.text(min_x + dst[i], max_y + 0.3, str(od.vid), fontname='Yu Gothic', fontsize=10, color="skyblue")
+                    plt.text(min_x + dst[i], max_y + 0.3, str(od.vid), fontsize=10, color="skyblue")
 
                     for pos in reversed(traje_queue):
                         #plt.plot(pos[0], pos[1], 'o', markersize=marker_size, color="steelblue")
@@ -547,7 +547,7 @@ def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, 
 
                 else:
                     plt.plot(v_tmp_x + dst[i], v_tmp_y, color="lightgray")
-                    plt.text(min_x + dst[i], max_y + 0.3, str(od.vid), fontname='Yu Gothic', fontsize=10, color="lightgray")
+                    plt.text(min_x + dst[i], max_y + 0.3, str(od.vid), fontsize=10, color="lightgray")
 
                     for pos in reversed(traje_queue):
                         #plt.plot(pos[0], pos[1], 'o', markersize=marker_size, color="lightgray")
@@ -581,11 +581,11 @@ def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, 
 
 
             #if near_ahead_car is not None:
-            #    plt.text(near_ahead_car.dx + dst[i], near_ahead_car.dy_r, 'F', fontname='Yu Gothic', fontsize=10)
+            #    plt.text(near_ahead_car.dx + dst[i], near_ahead_car.dy_r, 'F', fontsize=10)
             #if near_adjacent_car_l is not None:
-            #    plt.text(near_adjacent_car_l.dx + dst[i], near_adjacent_car_l.dy_r, 'L', fontname='Yu Gothic', fontsize=10)
+            #    plt.text(near_adjacent_car_l.dx + dst[i], near_adjacent_car_l.dy_r, 'L', fontsize=10)
             #if near_adjacent_car_r is not None:
-            #    plt.text(near_adjacent_car_r.dx + dst[i], near_adjacent_car_r.dy_r, 'R', fontname='Yu Gothic', fontsize=10)
+            #    plt.text(near_adjacent_car_r.dx + dst[i], near_adjacent_car_r.dy_r, 'R', fontsize=10)
 
             ahead_car_sct_threshold = 3
             cutin_sct_threshold = 8
@@ -762,12 +762,9 @@ def do_process(ego_data_file, front_lane_data_file, rear_lane_data_file, width, 
         near_vehicles_file.write(row_data + '\n')
 
 
-        plt.xlabel('X [m]', fontname='Yu Gothic', fontsize=18)
-        plt.ylabel('Y [m]', fontname='Yu Gothic', fontsize=18)
-        plt.title('Top view', fontname='Yu Gothic', fontsize=18)
-        #plt.xlabel('X [m]', fontsize=18)
-        #plt.ylabel('Y [m]', fontsize=18)
-        #plt.title('Top view', fontsize=18)
+        plt.xlabel('X [m]', fontsize=18)
+        plt.ylabel('Y [m]', fontsize=18)
+        plt.title('Top view', fontsize=18)
 
         plt.savefig(os.path.join(out_graph_dir, 'topview_' + str(f[i]) + '.png'))
         plt.cla()

@@ -46,6 +46,10 @@ from trajectory import sensor
 from trajectory import lane as lane_proc
 from trajectory import distance as distance_calc
 from trajectory import sct
+from trajectory import graph
+from trajectory import plotmap
+from trajectory import topview
+from trajectory import movie
 from path_config import build_paths, ensure_dirs
 
 
@@ -107,6 +111,12 @@ def parse_args():
         type=int,
         default=None,
         help="指定したステップ番号から再開する (1-8)",
+    )
+    parser.add_argument(
+        "--movie-use-segmentation",
+        action="store_true",
+        default=False,
+        help="動画生成でlane画像の代わりにセグメンテーション画像を使用する",
     )
     return parser.parse_args()
 
@@ -462,7 +472,7 @@ def main():
     ensure_dirs(paths, [
         'image_lane', 'image_lane_front', 'image_lane_rear',
         'image_frame_front', 'image_frame_rear',
-        'plot', 'tmp', 'tmp_graph',
+        'plot', 'tmp', 'graph',
         'output_trajectory',
         'intermediate_distance', 'intermediate_lane_distance',
         'output_video',
@@ -549,12 +559,11 @@ def main():
         _t0 = time.monotonic()
         if front_seg_detect_data is None:
             restore_seg_detect_data()
-        front_lane_detection_data = process_distance_with_lane(
-            seg_front_dir, lane_dir, 'front', front_seg_detect_data
-        )
-        rear_lane_detection_data = process_distance_with_lane(
-            seg_rear_dir, lane_dir, 'rear', rear_seg_detect_data
-        )
+        with ThreadPoolExecutor() as executor:
+            future_front = executor.submit(process_distance_with_lane, seg_front_dir, lane_dir, 'front', front_seg_detect_data)
+            future_rear = executor.submit(process_distance_with_lane, seg_rear_dir, lane_dir, 'rear', rear_seg_detect_data)
+            front_lane_detection_data = future_front.result()
+            rear_lane_detection_data = future_rear.result()
         save_job_status(status_file, STEPS[1])
         step_times['Step 3'] = time.monotonic() - _t0
         logging.info("=== Step 3 完了 (%.1f秒) ===", step_times['Step 3'])
@@ -569,15 +578,19 @@ def main():
         logging.info("=== Step 4: セグメンテーション画像抽出 ===")
         _t0 = time.monotonic()
         front_seg_video = os.path.join(seg_front_dir, 'segmentation_cv.mp4')
-        if not os.path.isfile(front_frame_file) and os.path.isfile(front_seg_video):
-            extact_image.extract(front_seg_video, front_img_dir, front_frame_file, frame_step, time_step)
-
         rear_seg_video = os.path.join(seg_rear_dir, 'segmentation_cv.mp4')
-        if not os.path.isfile(rear_frame_file) and os.path.isfile(rear_seg_video):
-            extact_image.extract(rear_seg_video, rear_img_dir, rear_frame_file, frame_step, time_step)
+        video_dir = paths['output_video']
+
+        with ThreadPoolExecutor() as executor:
+            futures = []
+            if not os.path.isfile(front_frame_file) and os.path.isfile(front_seg_video):
+                futures.append(executor.submit(extact_image.extract, front_seg_video, front_img_dir, front_frame_file, frame_step, time_step))
+            if not os.path.isfile(rear_frame_file) and os.path.isfile(rear_seg_video):
+                futures.append(executor.submit(extact_image.extract, rear_seg_video, rear_img_dir, rear_frame_file, frame_step, time_step))
+            for f in futures:
+                f.result()
 
         # セグメンテーション動画を output/video にコピー（確認用）
-        video_dir = paths['output_video']
         if os.path.isfile(front_seg_video):
             shutil.copyfile(front_seg_video, os.path.join(video_dir, 'segmentation_front.mp4'))
         if os.path.isfile(rear_seg_video):
@@ -640,12 +653,17 @@ def main():
             restore_seg_detect_data()
         if front_lane_detection_data is None:
             restore_lane_detection_data()
-        process_ego_lane_distance(
-            paths['intermediate_lane_distance'], df_frame, front_lane_detection_data, front_seg_detect_data, 'front', fps
-        )
-        process_ego_lane_distance(
-            paths['intermediate_lane_distance'], df_frame, rear_lane_detection_data, rear_seg_detect_data, 'rear', fps
-        )
+        with ThreadPoolExecutor() as executor:
+            future_front = executor.submit(
+                process_ego_lane_distance,
+                paths['intermediate_lane_distance'], df_frame, front_lane_detection_data, front_seg_detect_data, 'front', fps
+            )
+            future_rear = executor.submit(
+                process_ego_lane_distance,
+                paths['intermediate_lane_distance'], df_frame, rear_lane_detection_data, rear_seg_detect_data, 'rear', fps
+            )
+            future_front.result()
+            future_rear.result()
         save_job_status(status_file, STEPS[4])
         step_times['Step 6'] = time.monotonic() - _t0
         logging.info("=== Step 6 完了 (%.1f秒) ===", step_times['Step 6'])
@@ -660,14 +678,67 @@ def main():
         _t0 = time.monotonic()
         if df_frame is None:
             restore_df_frame()
-        process_sct_calculation(
-            seg_front_dir, ego_info, df_frame, ego_data_file,
-            front_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], True, time_step, fps
+        with ThreadPoolExecutor() as executor:
+            future_front = executor.submit(
+                process_sct_calculation,
+                seg_front_dir, ego_info, df_frame, ego_data_file,
+                front_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], True, time_step, fps
+            )
+            future_rear = executor.submit(
+                process_sct_calculation,
+                seg_rear_dir, ego_info, df_frame, ego_data_file,
+                rear_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], False, time_step, fps
+            )
+            future_front.result()
+            future_rear.result()
+        graph_dir = paths['graph']
+        os.makedirs(graph_dir, exist_ok=True)
+
+        # センサーデータのグラフ作成（速度・加速度）
+        logging.info("--- センサーデータグラフ作成 ---")
+        graph.do_process(ego_data_file, tmp_dir, graph_dir)
+
+        # GPSプロット（地図上にGPS軌跡を描画）
+        logging.info("--- GPSマッププロット ---")
+        plotmap.do_process(ego_data_file, tmp_dir, graph_dir)
+
+        # 上面視作成処理
+        logging.info("--- 上面視グラフ作成 ---")
+        if front_seg_detect_data is None:
+            restore_seg_detect_data()
+        near_vehicles_file = os.path.join(tmp_dir, 'front_near_vehicles_file.csv')
+        topview.do_process(
+            ego_data_file, front_lane_data_file, rear_lane_data_file,
+            ego_info['width'], ego_info['length'],
+            front_seg_detect_data, rear_seg_detect_data,
+            paths['output_trajectory'], graph_dir, near_vehicles_file
         )
-        process_sct_calculation(
-            seg_rear_dir, ego_info, df_frame, ego_data_file,
-            rear_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], False, time_step, fps
+
+        # 動画ファイル作成
+        logging.info("--- 動画ファイル作成 ---")
+        if front_lane_detection_data is None:
+            restore_lane_detection_data()
+        # movie.pyはBBox等を含む元のsegmentation_results.jsonが必要
+        front_seg_result_json = os.path.join(seg_front_dir, 'segmentation_results.json')
+        front_seg_raw = None
+        if os.path.isfile(front_seg_result_json):
+            with open(front_seg_result_json, mode='r', encoding='utf-8') as f:
+                front_seg_raw = json.load(f)
+        video_dir = paths['output_video']
+        os.makedirs(video_dir, exist_ok=True)
+        movie_file = os.path.join(video_dir, 'topview.mp4')
+        if args.movie_use_segmentation:
+            movie_front_img_dir = paths['image_segmentation_front']
+            movie_rear_img_dir = paths['image_segmentation_rear']
+        else:
+            movie_front_img_dir = paths['image_lane_front']
+            movie_rear_img_dir = paths['image_lane_rear']
+        movie.make_movie(
+            ego_data_file, front_lane_detection_data, rear_lane_detection_data,
+            near_vehicles_file, front_seg_raw,
+            movie_front_img_dir, movie_rear_img_dir, movie_file, tmp_dir, graph_dir, fps
         )
+
         save_job_status(status_file, STEPS[5])
         step_times['Step 7'] = time.monotonic() - _t0
         logging.info("=== Step 7 完了 (%.1f秒) ===", step_times['Step 7'])
@@ -718,8 +789,8 @@ def run_scenario_generation(args, paths, seg_front_dir):
     scenario_dir = paths['output_scenario']
     sdmg_dir = os.path.join(scenario_dir, 'sdmg')
     plot_dir = paths['plot']
-    summary_dir = os.path.join(paths['output_video'], 'summary')
-    for d in [scenario_dir, sdmg_dir, plot_dir, summary_dir]:
+    video_dir = paths['output_video']
+    for d in [scenario_dir, sdmg_dir, plot_dir, video_dir]:
         os.makedirs(d, exist_ok=True)
 
     # 距離推定結果ファイル
@@ -868,11 +939,11 @@ def run_scenario_generation(args, paths, seg_front_dir):
     run_python_script(os.path.join(trajectory_script_dir, 'summarize_trajectories.py'), [
         '--detection_result', infer_rel_coord_file,
         '--trajectory_dir', scenario_dir,
-        '--output_dir', summary_dir,
+        '--output_dir', video_dir,
     ] + summarize_flags)
 
     run_python_script(os.path.join(trajectory_script_dir, 'plot_trajectories_summary.py'), [
-        '--summary_json', os.path.join(summary_dir, 'trajectory_summary.json'),
+        '--summary_json', os.path.join(video_dir, 'trajectory_summary.json'),
         '--road_network', xodr_road_coordinate_file,
         '--output_dir', plot_dir,
         '--limit_normal', '70',
@@ -884,11 +955,11 @@ def run_scenario_generation(args, paths, seg_front_dir):
     logging.info("--- Step 8g: サマリー動画生成 ---")
     _t0 = time.monotonic()
     run_python_script(os.path.join(trajectory_script_dir, 'generate_summary_video.py'), [
-        '--summary_json', os.path.join(summary_dir, 'trajectory_summary.json'),
+        '--summary_json', os.path.join(video_dir, 'trajectory_summary.json'),
         '--infer_dir', paths['image_segmentation'],
         '--distortion_dir', paths['image_distortion'],
         '--normal_dir', os.path.join(plot_dir, 'normal'),
-        '--output_path', os.path.join(summary_dir, 'summary_video.mp4'),
+        '--output_path', os.path.join(video_dir, 'summary_video.mp4'),
     ])
     logging.info("--- Step 8g 完了 (%.1f秒) ---", time.monotonic() - _t0)
 
