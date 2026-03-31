@@ -53,20 +53,15 @@ def build_paths(base_dir):
         'tmp': os.path.join(inter, 'tmp'),
         'tmp_graph': os.path.join(inter, 'tmp', 'graph'),
 
+        # 中間データ（SCT計算の入力）
+        'intermediate_distance': os.path.join(inter, 'distance'),
+        'intermediate_lane_distance': os.path.join(inter, 'lane_distance'),
+
         # === 最終成果物 ===
         'output': out,
 
-        # 自車データ
-        'output_ego': os.path.join(out, 'ego'),
-
-        # 自車-車線距離
-        'output_lane_distance': os.path.join(out, 'lane_distance'),
-
-        # 対象物距離
-        'output_distance': os.path.join(out, 'distance'),
-
-        # SCT/TTC
-        'output_sct': os.path.join(out, 'sct'),
+        # 軌跡・SCT/TTC
+        'output_trajectory': os.path.join(out, 'trajectory'),
 
         # シナリオ生成
         'output_scenario': os.path.join(out, 'scenario'),

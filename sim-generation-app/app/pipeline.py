@@ -454,17 +454,17 @@ def main():
 
     front_frame_file = os.path.join(tmp_dir, 'front_frame.csv')
     rear_frame_file = os.path.join(tmp_dir, 'rear_frame.csv')
-    ego_data_file = os.path.join(paths['output_ego'], 'ego.csv')
-    front_lane_data_file = os.path.join(paths['output_lane_distance'], 'front_lane.csv')
-    rear_lane_data_file = os.path.join(paths['output_lane_distance'], 'rear_lane.csv')
+    ego_data_file = os.path.join(paths['output_trajectory'], 'ego.csv')
+    front_lane_data_file = os.path.join(paths['intermediate_lane_distance'], 'front_lane.csv')
+    rear_lane_data_file = os.path.join(paths['intermediate_lane_distance'], 'rear_lane.csv')
 
     # 必要なディレクトリを作成
     ensure_dirs(paths, [
         'image_lane', 'image_lane_front', 'image_lane_rear',
         'image_frame_front', 'image_frame_rear',
         'plot', 'tmp', 'tmp_graph',
-        'output_ego', 'output_lane_distance',
-        'output_distance', 'output_sct',
+        'output_trajectory',
+        'intermediate_distance', 'intermediate_lane_distance',
         'output_video',
     ])
 
@@ -641,10 +641,10 @@ def main():
         if front_lane_detection_data is None:
             restore_lane_detection_data()
         process_ego_lane_distance(
-            paths['output_lane_distance'], df_frame, front_lane_detection_data, front_seg_detect_data, 'front', fps
+            paths['intermediate_lane_distance'], df_frame, front_lane_detection_data, front_seg_detect_data, 'front', fps
         )
         process_ego_lane_distance(
-            paths['output_lane_distance'], df_frame, rear_lane_detection_data, rear_seg_detect_data, 'rear', fps
+            paths['intermediate_lane_distance'], df_frame, rear_lane_detection_data, rear_seg_detect_data, 'rear', fps
         )
         save_job_status(status_file, STEPS[4])
         step_times['Step 6'] = time.monotonic() - _t0
@@ -662,11 +662,11 @@ def main():
             restore_df_frame()
         process_sct_calculation(
             seg_front_dir, ego_info, df_frame, ego_data_file,
-            front_lane_data_file, paths['output_sct'], paths['output_distance'], True, time_step, fps
+            front_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], True, time_step, fps
         )
         process_sct_calculation(
             seg_rear_dir, ego_info, df_frame, ego_data_file,
-            rear_lane_data_file, paths['output_sct'], paths['output_distance'], False, time_step, fps
+            rear_lane_data_file, paths['output_trajectory'], paths['intermediate_distance'], False, time_step, fps
         )
         save_job_status(status_file, STEPS[5])
         step_times['Step 7'] = time.monotonic() - _t0
